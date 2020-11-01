@@ -3,32 +3,39 @@
     <!-- Step 1 -->
     <mat-step [stepControl]="firstFormGroup">
         <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Step 1</ng-template>
+            <ng-template matStepLabel>Information compte</ng-template>
             <h2>Inscription</h2>
 
             <mat-form-field appearance="outline">
                 <mat-label>Pseudo</mat-label>
                 <input matInput formControlName="pseudo" placeholder="Votre pseudo" required>
             </mat-form-field>
+
             <br>
+
             <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
                 <input matInput formControlName="email" placeholder="Votre email" required>
             </mat-form-field>
+
             <br>
+
             <mat-form-field appearance="outline">
                 <mat-label>Mot de passe</mat-label>
                 <input type="password" matInput formControlName="password" placeholder="Votre mot de passe" required>
             </mat-form-field>
+
             <br>
-            <div>
+
+            <div class="radio-group">
                 <mat-label>Type de compte: </mat-label>
-                <mat-radio-group formControlName="floatLabelControl">
+                <mat-radio-group formControlName="type">
                     <mat-radio-button value="particular">Particulier</mat-radio-button>
                     <mat-radio-button value="professional">Professionnel</mat-radio-button>
                 </mat-radio-group>
             </div>
-            <div>
+
+            <div class="group-buttons">
                 <button mat-raised-button color="primary" (click)="goForward(stepper)">Suivant</button>
             </div>
 
@@ -38,41 +45,127 @@
     <!-- Step 2 -->
     <mat-step [stepControl]="secondFormGroup">
         <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>Fill out your address</ng-template>
+            <ng-template matStepLabel>Information générale</ng-template>
             <h2>Mon profile</h2>
 
             <fieldset>
                 <legend>Information Générales</legend>
-                <mat-form-field appearance="outline" >
+
+                <mat-form-field appearance="outline">
                     <mat-label>Nom</mat-label>
                     <input matInput formControlName="lastName" placeholder="Votre nom" required>
                 </mat-form-field>
+
                 <br>
+
                 <mat-form-field appearance="outline">
                     <mat-label>Prénom</mat-label>
                     <input matInput formControlName="firstName" placeholder="Votre prénom" required>
                 </mat-form-field>
-                <div>
-                    <button mat-raised-button matStepperPrevious>Back</button>
-                    <button mat-raised-button color="primary" matStepperNext>Next</button>
+
+                <br>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Pays</mat-label>
+                    <input type="text" placeholder="Votre pays" matInput formControlName="country"
+                        [matAutocomplete]="autoCountry">
+                    <mat-autocomplete autoActiveFirstOption #autoCountry>
+                        <mat-option *ngFor="let country of countrys" [value]="country">
+                            {{country}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Région</mat-label>
+                    <input type="text" placeholder="Votre région" matInput formControlName="city"
+                        [matAutocomplete]="autoCity">
+                    <mat-autocomplete autoActiveFirstOption #autoCity>
+                        <mat-option *ngFor="let city of citys" [value]="city">
+                            {{city}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+
+                <div class="radio-group">
+                    <mat-label>Genre</mat-label>
+                    <mat-radio-group formControlName="sexe">
+                        <mat-radio-button value="man">Homme</mat-radio-button>
+                        <mat-radio-button value="woman">Femme</mat-radio-button>
+                    </mat-radio-group>
                 </div>
-               
+
             </fieldset>
 
             <ng-container *ngIf="userType == userTypes.Professional">
+                <fieldset>
+                    <legend>Information Professionelles</legend>
 
+                    <mat-form-field appearance="outline">
+                        <mat-label>Domaine d'expertise</mat-label>
+                        <input type="text" placeholder="Votre domaine" matInput formControlName="category"
+                            [matAutocomplete]="autoCategory">
+                        <mat-autocomplete autoActiveFirstOption #autoCategory>
+                            <mat-option *ngFor="let category of categorys" [value]="category">
+                                {{category}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+
+                    <br>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Année d'expérience</mat-label>
+                        <input type="number" matInput formControlName="yearOfExperience" placeholder="Vos années d'expériences">
+                    </mat-form-field>
+
+                    <br>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Biographie</mat-label>
+                        <textarea matInput formControlName="biography" placeholder="Votre biographie"></textarea>
+                    </mat-form-field>
+
+                    <br>
+
+                    <mat-form-field appearance="standard" class="chip-list">
+                        <mat-chip-list #skillList>
+                            <mat-chip *ngFor="let skill of skills" [selectable]="selectable" [removable]="removable"
+                                (removed)="remove(skill)">
+                                {{skill}}
+                                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                            </mat-chip>
+                            <input placeholder="New skill..." #skillInput formControlName="skills"
+                                [matAutocomplete]="auto" [matChipInputFor]="skillList"
+                                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                (matChipInputTokenEnd)="addChip($event)">
+                        </mat-chip-list>
+                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                            <mat-option *ngFor="let skill of allSkills" [value]="skill">
+                                {{skill}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+
+                </fieldset>
             </ng-container>
+
+            <div class="group-buttons">
+                <button mat-raised-button matStepperPrevious>Précedent</button>
+                <button mat-raised-button color="primary" matStepperNext>Suivant</button>
+            </div>
         </form>
 
     </mat-step>
 
     <!-- Step 3 -->
     <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
-        <p>You are now done.</p>
-        <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
+        <ng-template matStepLabel>Finalisation</ng-template>
+        <p>Vous avez maintenant terminé.</p>
+        <div class="group-buttons">
+            <button mat-raised-button matStepperPrevious>Précedent</button>
+            <button mat-raised-button color="warn" (click)="reset(stepper)">Réinitialiser</button>
+            <button mat-raised-button color="primary" (click)="valid()">Valider</button>
         </div>
     </mat-step>
 
