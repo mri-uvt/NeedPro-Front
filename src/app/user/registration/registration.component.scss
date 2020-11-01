@@ -1,16 +1,9 @@
-// form {
-//     margin-bottom: 20px;
-// }
-
-// form > * {
-//     margin: 5px 0;
-// }
-
 fieldset {
     border-width: 1px;
     border-style: outset;
     padding: 30px;
     margin: 28px 0;
+    width: 30%;
 }
 
 .mat-form-field + .mat-form-field {
@@ -43,5 +36,5 @@ fieldset {
 }
 
 .chip-list{
-    width: 30%;
+    width: 100%;
 }

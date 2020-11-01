@@ -5,7 +5,8 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { MatStepper } from '@angular/material/stepper';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-registration',
@@ -38,7 +39,8 @@ export class RegistrationComponent implements OnInit {
   userTypes = UserType;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private snakeBar : MatSnackBar
     ) {
     this.filteredSkills = this.firstFormGroup?.controls['skills']?.valueChanges?.pipe(
       startWith(null),
@@ -108,6 +110,15 @@ export class RegistrationComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.allSkills.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+  reset(stepper: MatStepper){
+    stepper.reset();
+    this.snakeBar.open("Le formulaire est réinitialiser !",'X',{duration:1000});
+  }
+
+  valid(){
+    this.snakeBar.open("Votre compte est créer !",'X',{duration:1000});
   }
 
 }

@@ -22,6 +22,10 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
+
 
 
 const modules = [
@@ -33,7 +37,9 @@ const modules = [
   MatRadioModule,
   MatAutocompleteModule,
   MatIconModule,
-  MatChipsModule
+  MatChipsModule,
+  MatDialogModule,
+  MatSnackBarModule
 ];
 
 @NgModule({

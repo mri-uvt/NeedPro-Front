@@ -135,7 +135,7 @@
                                 {{skill}}
                                 <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
                             </mat-chip>
-                            <input placeholder="New fruit..." #skillInput formControlName="skills"
+                            <input placeholder="New skill..." #skillInput formControlName="skills"
                                 [matAutocomplete]="auto" [matChipInputFor]="skillList"
                                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                                 (matChipInputTokenEnd)="addChip($event)">
@@ -164,8 +164,8 @@
         <p>Vous avez maintenant terminé.</p>
         <div class="group-buttons">
             <button mat-raised-button matStepperPrevious>Précedent</button>
-            <button mat-raised-button color="warn" (click)="stepper.reset()">Réinitialiser</button>
-            <button mat-raised-button color="primary">Valider</button>
+            <button mat-raised-button color="warn" (click)="reset(stepper)">Réinitialiser</button>
+            <button mat-raised-button color="primary" (click)="valid()">Valider</button>
         </div>
     </mat-step>
 
