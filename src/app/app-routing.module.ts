@@ -5,7 +5,7 @@ import { AuthenticationComponent } from './user/authentication/authentication.co
 import { RegistrationComponent } from './user/registration/registration.component';
 
 const routes: Routes = [
-  { path: '', component: RegistrationComponent},
+  { path: '', component: AuthenticationComponent},
   { path: 'authentication', component: AuthenticationComponent},
   { path: 'registration', component: RegistrationComponent},
   { path: 'not-found', component: FourOhFourComponent},

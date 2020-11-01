@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "NeedPro-Front"
+  "defaultProject": "NeedPro-Front",
+  "cli": {
+    "analytics": false
+  }
 }
