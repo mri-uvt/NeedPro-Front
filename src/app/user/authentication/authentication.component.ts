@@ -1,44 +1,53 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
-
 
 @Component({
   selector: 'app-authentication',
   templateUrl: './authentication.component.html',
   styleUrls: ['./authentication.component.scss']
 })
+
 export class AuthenticationComponent implements OnInit {
-
-  constructor(private router: Router) { }
-  Logo: string;
-  ngOnInit(): void {
-    this.Logo = "C:/Users/soumaya/mpwin/NeedPro/NeedPro-Front/src/logo.jpg";
-  }
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
-  passwordFormControl = new FormControl('', [
-    Validators.required,
-
-  ]);
+  authFormGroup: FormGroup;
   hide = true;
-  get passwordInput() { return this.passwordFormControl; }
+
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) { }
+
+  ngOnInit() {
+    this.initForm();
+  }
+
+  initForm(){
+    this.authFormGroup = this.formBuilder.group({
+      email: ['',[Validators.required,Validators.email]],
+      password: ['',Validators.required]
+    });
+  }
+
+  emailFormErrors(error: string) {
+    return this.authFormGroup.controls['email'].hasError(error);
+  }
+  
+  passwordFormErrors(error: string) {
+    return this.authFormGroup.controls['password'].hasError(error);
+  }
+  // get passwordInput() { return this.passwordFormControl; }
 
   Login() {
-    if (this.existUser(this.emailFormControl.value, this.passwordFormControl.value)) {
+    if (this.existUser(this.authFormGroup.controls['email'].value, this.authFormGroup.controls['password'].value)) {
       // this.router.navigateByUrl('');
-
     }
     else {
 
     }
   }
+
   existUser(email, password) {
     return false;
-
   }
 
 }

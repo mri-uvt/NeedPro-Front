@@ -1,64 +1,61 @@
 .center-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  .input-width {
-    width: 100%;
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 0px;
-  }
-  .outer-div{
-    // width: 300px;
-    margin-left: 35%;
-    margin-right: 35%;
-    text-align: center;
-    padding-top: 1%;
-    
-    
-  }
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
 
-    .inner-div{
-    border-style:solid ;
-    border-color:black;
-    padding:50px;
-    text-align: center;
- 
-  }
-  .login-button-row {
-    padding-top: 10px;
+mat-form-field {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
 
-  }
-    .zoom div img {
-  
-      -webkit-filter: grayscale(0) blur(0px);
-      filter: grayscale(0) blur(0px);
-      -webkit-transition: all 0.5s ease;
-      transition: all 0.5s ease;
-    }
-    .zoom div:hover img {
-      width: 150px; /* on affiche l'image au carré */
-      height: 150px;
-      border-radius: 50%;  /* on arrondit l'image */
-      -webkit-transform: rotate(360deg); /* rotation de l'image */
-      transform: rotate(360deg);
-    }
-     
-    h1{
-        text-align: center;
-        font-style: gras;
-      }
-  .Logo-Img{
+.outer-div {
+  // width: 300px;
+  margin-left: 35%;
+  margin-right: 35%;
+  text-align: center;
+  padding-top: 1%;
+}
+
+.inner-div {
+  border-style: solid;
+  border-color: black;
+  padding: 50px;
+  text-align: center;
+}
+
+.login-button-row {
+  padding-top: 10px;
+}
+
+.zoom div img {
+  -webkit-filter: grayscale(0) blur(0px);
+  filter: grayscale(0) blur(0px);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.zoom div:hover img {
+  width: 150px; /* on affiche l'image au carré */
+  height: 150px;
+  border-radius: 50%; /* on arrondit l'image */
+  -webkit-transform: rotate(360deg); /* rotation de l'image */
+  transform: rotate(360deg);
+}
+
+.Logo-Img {
   width: 100px;
   height: 100px;
   // text-align: center;
-  Background-position: center center;    
+  background-position: center center;
 }
-.link{
 
+.link {
   padding-top: 10px;
- }
-.btn-Login{
+}
+
+.btn-Login {
   width: 100px;
 }

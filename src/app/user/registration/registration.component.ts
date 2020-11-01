@@ -48,7 +48,10 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.initForms();
+  }
 
+  initForms() {
     this.firstFormGroup = this.formBuilder.group({
       pseudo: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -68,7 +71,6 @@ export class RegistrationComponent implements OnInit {
       biography: [''],
       skills: ['']
     });
-
   }
 
   goForward(stepper: MatStepper) {
