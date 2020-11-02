@@ -35,8 +35,7 @@ export class AuthenticationComponent implements OnInit {
   passwordFormErrors(error: string) {
     return this.authFormGroup.controls['password'].hasError(error);
   }
-  // get passwordInput() { return this.passwordFormControl; }
-
+  
   Login() {
     if (this.existUser(this.authFormGroup.controls['email'].value, this.authFormGroup.controls['password'].value)) {
       // this.router.navigateByUrl('');
