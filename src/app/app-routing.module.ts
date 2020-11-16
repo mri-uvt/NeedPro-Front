@@ -3,9 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { FourOhFourComponent } from './core/four-oh-four/four-oh-four.component';
 import { AuthenticationComponent } from './user/authentication/authentication.component';
 import { RegistrationComponent } from './user/registration/registration.component';
-
 const routes: Routes = [
-  { path: '', component: AuthenticationComponent},
+  { path: '', component: AuthenticationComponent}, 
   { path: 'authentication', component: AuthenticationComponent},
   { path: 'registration', component: RegistrationComponent},
   { path: 'not-found', component: FourOhFourComponent},

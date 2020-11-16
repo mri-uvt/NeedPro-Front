@@ -11,7 +11,6 @@ import { FourOhFourComponent } from './core/four-oh-four/four-oh-four.component'
 import { HeaderComponent } from './core/header/header.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { AuthenticationComponent } from './user/authentication/authentication.component';
-
 /**Angular Material */
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -25,6 +24,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 const modules = [
   MatToolbarModule,
@@ -47,7 +47,8 @@ const modules = [
     FourOhFourComponent,
     HeaderComponent,
     RegistrationComponent,
-    AuthenticationComponent,
+    AuthenticationComponent
+    
 
     
   ],
