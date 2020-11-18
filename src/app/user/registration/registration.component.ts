@@ -7,6 +7,10 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CityService } from 'src/app/services/city.service';
+import { city } from 'src/app/models/city';
+import { CountryService } from 'src/app/services/country.service';
+import { country } from 'src/app/models/country';
 
 @Component({
   selector: 'app-registration',
@@ -29,7 +33,8 @@ export class RegistrationComponent implements OnInit {
 
   /** Lists */
   countrys: string[] = ['Tunisie','Algerie','Maroc'];
-  citys: string[] = ['Ben arous','Ariana','Manouba'];
+  cities: city[];
+  countries: country[];
   categorys: string[] = ['Scientifique','Informatique'];
   skills: string[] = ['XML'];
   allSkills: string[] = ['C#','HTML','TypeScript','JAVA','SQL','Git'];
@@ -40,7 +45,9 @@ export class RegistrationComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private snakeBar : MatSnackBar
+    private snakeBar : MatSnackBar,
+    private cityService: CityService,
+    private countryService: CountryService
     ) {
     this.filteredSkills = this.firstFormGroup?.controls['skills']?.valueChanges?.pipe(
       startWith(null),
@@ -49,6 +56,8 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
     this.initForms();
+    this.initCities();
+    this.initCountries();
   }
 
   initForms() {
@@ -70,6 +79,18 @@ export class RegistrationComponent implements OnInit {
       yearOfExperience: [''],
       biography: [''],
       skills: ['']
+    });
+  }
+
+  initCities(){
+    this.cityService.get().subscribe(data => {
+      this.cities = data;
+    });
+  }
+
+  initCountries(){
+    this.countryService.get().subscribe(data => {
+      this.countries = data;
     });
   }
 

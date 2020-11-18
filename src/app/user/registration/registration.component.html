@@ -70,8 +70,8 @@
                     <input type="text" placeholder="Votre pays" matInput formControlName="country"
                         [matAutocomplete]="autoCountry">
                     <mat-autocomplete autoActiveFirstOption #autoCountry>
-                        <mat-option *ngFor="let country of countrys" [value]="country">
-                            {{country}}
+                        <mat-option *ngFor="let country of countries" [value]="country.id">
+                            {{country.name}}
                         </mat-option>
                     </mat-autocomplete>
                 </mat-form-field>
@@ -81,8 +81,8 @@
                     <input type="text" placeholder="Votre région" matInput formControlName="city"
                         [matAutocomplete]="autoCity">
                     <mat-autocomplete autoActiveFirstOption #autoCity>
-                        <mat-option *ngFor="let city of citys" [value]="city">
-                            {{city}}
+                        <mat-option *ngFor="let city of cities" [value]="city.id">
+                            {{city.name}}
                         </mat-option>
                     </mat-autocomplete>
                 </mat-form-field>
