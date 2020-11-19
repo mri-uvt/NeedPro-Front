@@ -1,1 +1,7 @@
-<p>home works!</p>
+ <mat-grid-list cols="2" rowHeight="4:2" gutterSize="10px"
+    *ngFor="let domain of domaines">
+    <mat-grid-tile>{{domain.name}}</mat-grid-tile>
+    <mat-grid-tile>2</mat-grid-tile>
+    <mat-grid-tile>3</mat-grid-tile>
+    <mat-grid-tile>4</mat-grid-tile>
+</mat-grid-list>

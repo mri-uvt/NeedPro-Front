@@ -1,21 +1,20 @@
 <div class="outer-div">
-
- 
-
     <div class="inner-div">
-        
-    <div class="zoom colonne">
-        <div>
-          <img class="Logo-Img" mat-card-image src="assets/LogoNeedPro.png" />
-          <!-- <h1>Authentification</h1> -->
-        </div>
 
-    </div>
+        <div class="zoom colonne">
+            <div>
+                <img class="Logo-Img" mat-card-image
+                    src="assets/LogoNeedPro.png" />
+            </div>
+        </div>
+        
         <form [formGroup]="authFormGroup">
             <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
-                <input matInput formControlName="email" placeholder="Ex. pat@example.com" required>
-                <mat-error *ngIf="emailFormErrors('email') && !emailFormErrors('required')">
+                <input matInput formControlName="email" placeholder="Ex.
+                    pat@example.com" required>
+                <mat-error *ngIf="emailFormErrors('email') &&
+                    !emailFormErrors('required')">
                     Enter une addresse email valide
                 </mat-error>
                 <mat-error *ngIf="emailFormErrors('required')">
@@ -25,9 +24,11 @@
 
             <mat-form-field appearance="outline">
                 <mat-label>Mot de passe</mat-label>
-                <input matInput formControlName="password" placeholder="Votre mot de passe"
+                <input matInput formControlName="password" placeholder="Votre
+                    mot de passe"
                     [type]="hide ? 'password' : 'text'" required>
-                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-icon matSuffix (click)="hide= !hide">{{hide ?
+                    'visibility_off' : 'visibility'}}</mat-icon>
                 <mat-error *ngIf="!passwordFormErrors('required')">
                     Entre votre mot de passe
                 </mat-error>
@@ -41,11 +42,13 @@
             </div>
 
             <div class="link">
-                <a routerLink="/registration" routerLinkActive="active" > Inscrivez-vous </a>
+                <a routerLink="/registration" routerLinkActive="active">
+                    Inscrivez-vous </a>
             </div>
 
             <div class="login-button-row">
-                <button mat-raised-button color="primary" class="btn-Login"  (click)="Login()">Connecter</button>
+                <button mat-raised-button color="primary" class="btn-Login"
+                    (click)="Login()">Connecter</button>
             </div>
 
         </form>

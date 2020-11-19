@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +12,7 @@ import { HeaderComponent } from './core/header/header.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { AuthenticationComponent } from './user/authentication/authentication.component';
 import { HomeComponent } from './home/home.component';
+import { AdminConfigComponent } from './admin/admin-config/admin-config.component';
 
 /**Angular Material */
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -27,6 +27,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 const modules = [
   MatToolbarModule,
@@ -40,7 +43,10 @@ const modules = [
   MatChipsModule,
   MatDialogModule,
   MatSnackBarModule,
-  MatMenuModule
+  MatMenuModule,
+  MatGridListModule,
+  MatSidenavModule,
+  MatListModule
 ];
 
 @NgModule({
@@ -50,7 +56,8 @@ const modules = [
     HeaderComponent,
     RegistrationComponent,
     AuthenticationComponent,
-    HomeComponent
+    HomeComponent,
+    AdminConfigComponent
   ],
   
   imports: [
