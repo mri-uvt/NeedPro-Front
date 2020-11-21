@@ -1,11 +1,23 @@
-<mat-toolbar color="primary">
-    <a routerLink="home">NeedPro</a>
-    <span class="example-spacer"></span>
+<mat-toolbar class="header">
+    <a routerLink="home">
+        NeedPro
+    </a>
+    <span class="spacer"></span>
     <button mat-button [matMenuTriggerFor]="menu">
         <mat-icon>account_circle</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="authentication">Authentification</button>
-        <button mat-menu-item routerLink="admin-config">Espace administrateur</button>
+        <button mat-menu-item routerLink="authentication">
+            <mat-icon>login</mat-icon>
+            Authentification
+        </button>
+        <button mat-menu-item routerLink="authentication">
+            <mat-icon>contact_page</mat-icon>
+            Mon profil
+        </button>
+        <button mat-menu-item routerLink="/admin/settings">
+            <mat-icon>admin_panel_settings</mat-icon>
+            Espace administrateur
+        </button>
     </mat-menu>
 </mat-toolbar>

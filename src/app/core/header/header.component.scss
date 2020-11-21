@@ -2,6 +2,12 @@ a {
    color: inherit; 
    text-decoration: inherit;
 }
-.example-spacer {
+.header {
+   position: fixed;
+   z-index: 2;
+   background-color: #242038;
+   color: white;
+}
+.spacer {
    flex: 1 1 auto;
 }
