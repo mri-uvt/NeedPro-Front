@@ -21,13 +21,6 @@ steps:
     ng build --prod
   displayName: 'npm install and build'
 
-- task: DockerCompose@0
-  inputs:
-    containerregistrytype: 'Container Registry'
-    dockerRegistryEndpoint: 'docker-registry'
-    dockerComposeFile: '**/docker-compose.yml'
-    action: 'Build services'
-
 - task: Docker@2
   inputs:
     containerRegistry: 'docker-registry'
