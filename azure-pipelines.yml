@@ -24,6 +24,6 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'docker-registry'
-    repository: 'needpro-registry'
+    repository: 'needpro-front'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
